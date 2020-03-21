@@ -1,0 +1,17 @@
+
+
+
+
+#################################################
+Context
+1 获取Context
+	1)在Fragment中获取 requireActivity()
+	2）在Viewmodel， 成员变量“Application” 就是context
+
+
+
+#################################################
+Resource
+1 调用R.String
+	1)in Fragment
+		getString(R.string.egg_notification_channel_id)
