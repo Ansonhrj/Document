@@ -1,0 +1,66 @@
+ways to getsystem vervice
+	 val notificationManager = ContextCompat.getSystemService(app,
+                    NotificationManager::class.java
+                ) as NotificationManager
+     val notificationManager = requireActivity().getSystemService(NotificationManager::class.java)
+
+
+
+
+mauthkey ""
+mtpye SIGN_UP
+
+
+
+appisntallID?
+	eeb77a42-3101-4f0c-9b13-8cf19e81d5d0
+engagement id
+	1142827970
+jwt
+	OAuth 2.0 Authentication Endpoint (when separate browser window is used)
+	JS method name and context (when LiveEngage embedded window is used in Web)
+
+
+
+opt+cmd left, back to last edit
+fn+cmd+f12, check all the member of a class
+cmd + /, comment a block
+ctrl +o, overwrite memeber
+shift+cmd+f, global search
+
+
+编辑区的光标跳转：
+跳转到文件开头
+mac: fn + command + 左箭头
+跳转到文件结尾
+mac: fn + command + 右箭头
+跳转到当前显示区域开头
+mac: fn + command + 上箭头
+跳转到当前显示区域结尾
+mac: fn + command + 下箭头
+
+在finder打开根目录 command+shift+c.
+
+rebuild project to generate data binding object
+	To force the creation of the Binding object, select Build > Clean Project, then select Build > Rebuild Project. (If you still have problems, select File > Invalidate Caches / Restart.) 
+
+
+ssr://anAxMmo1NjQubGlnaHRzc29ja3MuY29tOjQ0MzphdXRoX2NoYWluX2E6bm9uZTp0bHMxLjJfdGlja2V0X2F1dGg6YUdWc2JHOTNiM0pzWkEvP29iZnNwYXJhbT1jR0l1ZEdWa1kyUnVMbU52YlEmcHJvdG9wYXJhbT1PVEkyTURwMmRsbFdUVUpIU2cmcmVtYXJrcz01cGVsNXB5cyZncm91cD1NakF5TUMwd01TMHlPT1dJc09hY253 
+ssr://dXM5ajUzOTIubGlnaHRzc29ja3MuY29tOjQ0MzphdXRoX2NoYWluX2E6bm9uZTp0bHMxLjJfdGlja2V0X2F1dGg6YUdWc2JHOTNiM0pzWkEvP29iZnNwYXJhbT1jR0l1ZEdWa1kyUnVMbU52YlEmcHJvdG9wYXJhbT1PVEkyTURwMmRsbFdUVUpIU2cmcmVtYXJrcz01NzZPNVp1OSZncm91cD1NakF5TUMwd01TMHlPT1dJc09hY253 
+ssr://c2cyMzZqNjcubGlnaHRzc29ja3MuY29tOjQ0MzphdXRoX2NoYWluX2E6bm9uZTp0bHMxLjJfdGlja2V0X2F1dGg6YUdWc2JHOTNiM0pzWkEvP29iZnNwYXJhbT1jR0l1ZEdWa1kyUnVMbU52YlEmcHJvdG9wYXJhbT1PVEkyTURwMmRsbFdUVUpIU2cmcmVtYXJrcz01cGF3NVlxZzVaMmgmZ3JvdXA9TWpBeU1DMHdNUzB5T09XSXNPYWNudw 
+ssr://aGszajM5MDQubGlnaHRzc29ja3MuY29tOjQ0MzphdXRoX2NoYWluX2E6bm9uZTp0bHMxLjJfdGlja2V0X2F1dGg6YUdWc2JHOTNiM0pzWkEvP29iZnNwYXJhbT1jR0l1ZEdWa1kyUnVMbU52YlEmcHJvdG9wYXJhbT1PVEkyTURwMmRsbFdUVUpIU2cmcmVtYXJrcz02YWFaNXJpdkxlUzlqdVc3dHVpX24tYTR1T2FJai1TNGstZVVxQSZncm91cD1NakF5TUMwd01TMHlPT1dJc09hY253
+
+
+Kotlin
+？：表示当前是否对象可以为空
+
+！！： 表示当前对象不为空的情况下执行
+Kotlin 中 双冒号操作符 表示把一个方法当做一个参数，传递到另一个方法中进行使用，通俗的来讲就是引用一个方法
+
+
+gh_564da1a38a11
+
+Live person
+	Account number: 19762014  19762014
+	User ID/Email: ansonhrj@126.com
+	pwd: Hr.....6#OAuth 2.0 Authentication Endpoint
