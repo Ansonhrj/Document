@@ -1,7 +1,15 @@
+Log.d(TAG, "From: ${remoteMessage?.from}")
+	//变量是string， 直接 $name
+	//用对象的某个string属性 ¥、${people.name}
+
+
+
 #################################################
 Context
 1 获取Context
-	1)在Fragment中获取 requireActivity()
+	1)在Fragment中获取 
+		a)直接使用 “context”,因为父类Fragment.java 定义了context变量
+		b)requireActivity()
 	2）在Viewmodel， 成员变量“Application” 就是context
 
 #################################################
