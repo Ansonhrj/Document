@@ -5,6 +5,11 @@ Log.d(TAG, "From: ${remoteMessage?.from}")
 
 
 #################################################
+类型转换
+	1 将 String？ 转化成 String
+		it.body as String
+
+#################################################
 Context
 1 获取Context
 	1)在Fragment中获取 
