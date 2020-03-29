@@ -1,3 +1,11 @@
 
 gradle for Android
 	https://segmentfault.com/a/1190000004229002
+	
+多个flaovr的build variant
+1 资源文件和manifest的合并
+	优先级: buildtype > flavor > Main > dependencies(引用的其他模块)
+	内容没有冲突，就直接合并。 如果有冲突，高优先级覆盖低优先级
+	
+	
+	
