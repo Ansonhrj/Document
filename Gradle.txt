@@ -2,10 +2,31 @@
 gradle for Android
 	https://segmentfault.com/a/1190000004229002
 	
-多个flaovr的build variant
-1 资源文件和manifest的合并
+
+
+
+############################################
+Global X 依赖
+1 app 用到的其它依赖模块， 在setting.gradle include
+2 在app 的build.gradle 中，implementation project(':library'),从而使用这些其它模块
+	
+############################################
+Global X 地区，环境的支持
+1 定义flavordimensions， region， enviromnet, type(安全性相关)
+2 定义productFlavors, dimensions 'region'指明属于哪个dimension
+3 buildtpye, 安卓默认提供 debug 和release， 还可以自定义
+4 flavorDimensions + buildtype 构成不同的buildvariants
+5 buildvariants 由所有的productflavor + buildtype排列组合而成
+	包含 region+enviroment+type+buildtpye
+  通过android.variantFilter 过滤不需要用到的buildvariant，例如production环境的，只能用安全的type
+6 每个buildvariant/productflavor可以由自己的sourceset
+	默认的sourceset是app/src/main
+	us的sourceset是app/src/us
+ build的时候， 所有buildscript和sourceset会合并
+   资源文件和manifest的合并
 	优先级: buildtype > flavor > Main > dependencies(引用的其他模块)
 	内容没有冲突，就直接合并。 如果有冲突，高优先级覆盖低优先级
+	
 	
 	
 	
