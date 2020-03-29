@@ -31,3 +31,47 @@ SystemService
 	1）in Fragment, requireActivity().getSystemService(
 	2） ContextCompat.getSystemService（
 	
+
+#################################################
+Service
+1 每个service要在manifest文件注册， 可以加<intent-filter>指明serice会响应哪个intent
+2 自定义的service类继承IntentService. 只需要重写onHandleIntent方法去实现service就可以
+  intentservice会创建一个子线程，一个一个按顺序响应对服务的调用。、
+  当没有组件调用service的时候，intentserivce会销毁实例，以释放资源
+  
+  假如继承service类的话，上述逻辑就要自己实现
+3 调用服务有两种方式
+  1） 在组件（如activity）调用startService方法
+  2） 组件绑定服务
+
+#################################################
+Content provider
+用于访问数据，提供了抽象接口，好处是就算换了数据源，调用方都不用改变
+1 每个Content provider要在manifest文件注册
+
+################################################
+Broadcast
+1 注册Broadcast receivers的两种方式
+  1）在manifest文件注册,可以加<intent-filter>指明serice会响应哪个intent
+  2）用context注册
+  	val br: BroadcastReceiver = MyBroadcastReceiver()
+	val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
+       		 addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+    	}
+    	registerReceiver(br, filter)
+2 发送广播有3种方式
+  1）sendOrderedBroadcast(Intent, String) 方法一次向一个接收器发送广播
+  2）sendBroadcast(Intent) 方法会按随机的顺序向所有接收器发送广播
+  3）LocalBroadcastManager.sendBroadcast 方法会将广播发送给与发送器位于同一应用中的接收器
+
+
+
+
+
+
+
+
+
+
+
+
