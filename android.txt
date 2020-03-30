@@ -1,0 +1,5 @@
+
+###########################################
+Google play Framework
+	install to phone
+		https://arloor.com/posts/other/google-service-framework-install/
