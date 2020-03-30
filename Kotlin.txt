@@ -64,7 +64,9 @@ Broadcast
   2）sendBroadcast(Intent) 方法会按随机的顺序向所有接收器发送广播
   3）LocalBroadcastManager.sendBroadcast 方法会将广播发送给与发送器位于同一应用中的接收器
 
-
+################################################
+反射
+https://juejin.im/post/5be5576ef265da61616e331d
 
 
 
