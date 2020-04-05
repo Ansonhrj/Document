@@ -22,7 +22,7 @@ public class A {
 ################################################
 Dagger
 1 使用 https://zhuanlan.zhihu.com/p/32772661
-在例子中，MainPresenter是要注入的类(依赖类)，MainActivity是使用的地方（目标类）
+在例子中，MainPresenter是要注入的类(依赖类)，MainActivity是使用的地方
 @Inject注解会用在step 1 和3
 1）MainPresenter的构造函数用 @Inject 注解
     class MainPresenter @Inject constructor() 
@@ -46,11 +46,26 @@ Dagger
 class MainServiceModule {
     @Provides
     fun provideMainService(): MainService {
-        return MainServiceImpl()
+        return MainServiceImpl()   //这里是直接通过构造函数实例化
     }
 }
- 3）还是通过Component类将Module和目标类桥接在一起。 注解要说明Module的class
+ 3）还是通过Component类将Module和MainActity桥接在一起。 注解要说明Module的class
  @Component(modules = [(MainServiceModule::class)])
- 4）在目标类调用注入的时候， 多调用了module的方法
+ 4）在MainActity调用注入的时候， 多调用了module的方法
  DaggerMainServiceComponent.builder().mainServiceModule(MainServiceModule()).build().inject(this)
-    
+       
+3 在第2步中Module直接通过构造函数实例化，没有用Dagger。可以改成用Dagger递归注入
+    return MainServiceImpl()   //这里是直接通过构造函数实例化
+ 1）MainServiceImpl类要用@Inject注解构造函数。 这就告诉编译器，Dagger2可以注入的类型为MainServiceImpl的变量
+ class MainServiceImpl @Inject constructor(): MainService {
+ 2）在Module中传入MainServiceImpl类型的参数
+ fun provideMainService(mainService:MainServiceImpl):MainService{
+        return mainService
+    }
+
+
+
+
+
+
+
