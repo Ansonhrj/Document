@@ -1,0 +1,18 @@
+################################################
+依赖注入
+有如下两种方式
+//构造方法依赖注入，初始化A的时候才指明使用哪个B对象
+public class A {
+    B b;
+    public void A(B b) {
+        this.b = b;
+    }
+}
+
+//set()方法依赖注入，初始化A后，再通过set方法，将需要的B对象赋值
+public class A {
+    B b;
+    public void setB(B b) {
+        this.b = b;
+    }
+}
