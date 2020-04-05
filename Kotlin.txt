@@ -11,11 +11,30 @@ Log.d(TAG, "From: ${remoteMessage?.from}")
 
 #################################################
 Context
+Context在加载资源、启动Activity、获取系统服务、创建View等操作都要参与
+
 1 获取Context
 	1)在Fragment中获取 
 		a)直接使用 “context”,因为父类Fragment.java 定义了context变量
 		b)requireActivity()
 	2）在Viewmodel， 成员变量“Application” 就是context
+	
+想要获取Context对象，主要有以下四种方法
+	1：View.getContext,返回当前View对象的Context对象，通常是当前正在展示的Activity对象。
+	2：Activity.getApplicationContext,获取当前Activity所在的(应用)进程的Context对象，通常我们使用Context对象时，要优先考虑这个全局的进程Context。getApplication()只有在Activity和Service中才能调用的到
+	3：ContextWrapper.getBaseContext():用来获取一个ContextWrapper进行装饰之前的Context，可以使用这个方法，这个方法在实际开发中使用并不多，也不建议使用。
+	4：Activity.this 返回当前的Activity实例，如果是UI控件需要使用Activity作为Context对象，但是默认的Toast实际上使用ApplicationContext也可以。
+
+2 继承关系
+https://juejin.im/post/5cb2e343e51d456e60003abc
+https://www.jianshu.com/p/94e0f9ab3f1d
+	Context     //定义了 getApplicationContext方法，所有子类都有这个方法
+	├── ContextImpl
+	└── ContextWrapper
+	    ├── Application
+	    ├── ContextThemeWrapper
+	    │   └── Activity
+	    └── Service
 
 #################################################
 Resource
@@ -69,6 +88,24 @@ Broadcast
 https://juejin.im/post/5be5576ef265da61616e331d
 
 
+################################################
+依赖注入
+有如下两种方式
+//构造方法依赖注入，初始化A的时候才指明使用哪个B对象
+public class A {
+    B b;
+    public void A(B b) {
+        this.b = b;
+    }
+}
+
+//set()方法依赖注入，初始化A后，再通过set方法，将需要的B对象赋值
+public class A {
+    B b;
+    public void setB(B b) {
+        this.b = b;
+    }
+}
 
 
 
