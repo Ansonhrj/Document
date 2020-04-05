@@ -56,6 +56,7 @@ class MainServiceModule {
        
 3 在第2步中Module直接通过构造函数实例化，没有用Dagger。可以改成用Dagger递归注入
     return MainServiceImpl()   //这里是直接通过构造函数实例化
+？？既然MainSerivceImpl都已经有@Inject注解的构造函数，直接在MainActivity 里面，像第一步那样注入就好了么？ 
  1）MainServiceImpl类要用@Inject注解构造函数。 这就告诉编译器，Dagger2可以注入的类型为MainServiceImpl的变量
  class MainServiceImpl @Inject constructor(): MainService {
  2）在Module中传入MainServiceImpl类型的参数
@@ -63,7 +64,7 @@ class MainServiceModule {
         return mainService
     }
 
-
+4 如果一个类既有@Inject构造方法，也有@Module工厂创建，@Module工厂的方式优先级高于@Inject构造方法
 
 
 
