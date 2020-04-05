@@ -20,9 +20,21 @@ public class A {
 
   
 ################################################
-Dagger  
-1 @Inject
-    注解需要注入的对象
-    用于成员属性， 构造函数，方法
-2 @Module
-    注解生成实例的类，如工厂
+Dagger
+1 使用 https://zhuanlan.zhihu.com/p/32772661
+在例子中，MainPresenter是要注入的类，MainActivity是使用的地方
+@Inject注解会用在step 1 和3
+1）MainPresenter的构造函数用 @Inject 注解
+    class MainPresenter @Inject constructor() 
+2）定义 Interface MainComponent, 作用是桥接MainPresenter 和MainActivity
+    Interface 用@Componnet注解
+    定义inject方法, 参数为MainActivity
+         fun inject(mainActivity: MainActivity)
+    重新编译代码，会自动生成DaggerMainComponent
+3) 在MainActivity中实现注入
+    用lateinit声明变量，并用@Inject注解
+        lateinit var mainPresenter: MainPresenter
+    调用自动生成的DaggerMainComponent实现注入
+        DaggerMainComponent.builder().build().inject(this)
+    
+    
