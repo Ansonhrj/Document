@@ -9,6 +9,20 @@ Log.d(TAG, "From: ${remoteMessage?.from}")
 	1 将 String？ 转化成 String
 		it.body as String
 
+
+
+
+#################################################
+Application
+https://www.cnblogs.com/renqingping/archive/2012/10/24/application.html
+1 Android系统自动会为每个程序运行时创建一个Application类的对象且只创建一个，是单例（singleton）模式的一个类
+    Application类的onCreate方法是整个程序的入口
+2 可以继承Application类去定制化
+    1）在Manifest添加
+    android:name=".MainApplication"
+3 在Application创建的时候初始化全局变量，同一个应用的所有Activity都可以取到这些全局变量的值
+4 只需要调用Context的 getApplicationContext或者Activity的getApplication方法来获得一个Application对象
+
 #################################################
 Context
 Context在加载资源、启动Activity、获取系统服务、创建View等操作都要参与
