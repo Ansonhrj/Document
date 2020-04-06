@@ -53,7 +53,9 @@ class MainServiceModule {
 }
  3）还是通过Component类将Module和MainActity桥接在一起。 注解要说明Module的class
  @Component(modules = [(MainServiceModule::class)])
- 4）在MainActity调用注入的时候， 多调用了module的方法
+ 4）在MainActity调用注入的时候， 
+ 多调用了module的方法,因为要首先创造工厂的实例，才可以生成目标对象
+ .build()方法最终也是创造DaggerMainServiceComponent的实例，然后调用DaggerMainServiceComponent的inject方法去注入
  DaggerMainServiceComponent.builder().mainServiceModule(MainServiceModule()).build().inject(this)
        
 3 在第2步中Module直接通过构造函数实例化，没有用Dagger。可以改成用Dagger递归注入
