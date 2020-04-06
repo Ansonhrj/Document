@@ -66,6 +66,25 @@ class MainServiceModule {
 4 如果一个类既有@Inject构造方法，也有@Module工厂创建，@Module工厂的方式优先级高于@Inject构造方法
 ？？既然MainSerivceImpl都已经有@Inject注解的构造函数，直接在MainActivity 里面，像第一步那样注入就好了么？
 
+5 Componnet组织架构
+https://zhuanlan.zhihu.com/p/36538398
+那从上至下，Component就会被划分为：
+ApplicationComponent（Application级别，管理App全局实例）
+ActivityComponent（Activity级别，管理Activity通用实例，Fragment同理）
+业务Component（业务层面，根据具体业务划分）
+
+6 Component服务能力
+1）在Component中，还可以定义一个方法生成object，用于提供服务能力，供业务组件使用
+@Component(modules = [(ApplicationModule::class)])
+    interface ApplicationComponent {
+
+        fun context():Context
+    }
+
+
+
+
+
 
 
 
