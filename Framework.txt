@@ -85,6 +85,38 @@ ActivityComponent（Activity级别，管理Activity通用实例，Fragment同理
         fun context():Context
     }
 
+7 @Component.Builder， @BindsInstance 
+https://juejin.im/post/5a4cf2b2f265da430d586ace
+这个注解是用了自定义Dagger***Componnet中的内部类 Builder
+总结：
+如果使用 @Component.Builder 和 @BindsInstance 来自定义 Builder 类，那么被@BindsInstance注解方法里面的参数在 Builder 类中都有对应的成员变量。
+    @BindsInstance Builder application(Application application);  //生成的Builder类中会有成员变量application
+可以通过 Builder 类中的成员变量在 Component 中生成对应的 Provider<T> **Provider 成员，通过 **Provider 成员的get()就可以拿到依赖的实例了。
+    ??
+
+使用场景：
+如果我们的 Moudle 某个被 @Provides 注解的 provide**(xxx obj) 函数使用了某种类型的对象作为参数(比如 application)，
+    @Provides
+    @Singleton
+    public SharedPreferences providePreferences(Application application) 
+而这个参数如果不想通过 Moudle 构造函数传递进来，那么就可以使用 @Component.Builder 来自定义 Builder 类，并通过 @BindsInstance 注解的方法来提供这个参数 obj。
+ public Builder application(Application application) {//这是通过@BindsInstance生成的在Builder中的方法
+      this.application = Preconditions.checkNotNull(application);
+      return this;
+ }
+ 
+ 注入时的区别
+ 没有使用@Component.Builder
+ AppComponent appComponent = DaggerAppComponent.builder()
+             .appMoudle(new AppMoudle(this))
+             .build();
+ 使用了@Component.Builder
+ DaggerAppComponent appComponent = DaggerAppComponent.builder()
+           .application(this)
+           .build();
+或者直接给 Component 直接添加一个对象依赖的提供函数。
+    ？？
+
 
 
 
