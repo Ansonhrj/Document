@@ -32,6 +32,7 @@ Context在加载资源、启动Activity、获取系统服务、创建View等操�
 		a)直接使用 “context”,因为父类Fragment.java 定义了context变量
 		b)requireActivity()
 	2）在Viewmodel， 成员变量“Application” 就是context
+	3) 在activity 中， 用“application” 变量
 	
 想要获取Context对象，主要有以下四种方法
 	1：View.getContext,返回当前View对象的Context对象，通常是当前正在展示的Activity对象。
