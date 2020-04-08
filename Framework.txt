@@ -22,6 +22,7 @@ public class A {
 ################################################
 Dagger
 https://github.com/Ansonhrj/Dagger2c
+https://www.imooc.com/article/22846
 
 1 使用 https://zhuanlan.zhihu.com/p/32772661
 在例子中，MainPresenter是要注入的类(依赖类)，MainActivity是使用的地方（目标类，里面的mainPresenter变量叫目标对象）
