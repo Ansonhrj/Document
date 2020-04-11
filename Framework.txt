@@ -126,6 +126,27 @@ https://github.com/Ansonhrj/MVVM-Android-dagger-android.git
 Dagger-Android在刚开始的时候通过注解处理器分析@Component、@Module、@ContributesAndroidInjector 等等注解，帮我们在App启动的时候建立了一个全局的单例map，并添加相关的映射。
 这个map对象由App的dispatchingAndroidInjector对象持有。其中key值为activity/fragment的class，value为提供相应Component的Provider对象。
 
+统一为不同的activity和fragment注入对象
+1）在Application类中
+    //继承 HasActivityInjector
+    public class MyApplication extends Application implements HasActivityInjector {
+    //定义这个变量
+    @Inject
+    DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
+    
+    //重写这个方法
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return dispatchingAndroidInjector;
+    }
+ 2）在activity中
+    //调用inject方法
+    override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+        super.onCreate(savedInstanceState）
+ 3）在Module中
+  @ContributesAndroidInjector(modules = [ABModule::class]) //modules填写提供依赖的module
+    abstract fun mainActivityInjector(): MainActivity
 
 
 
