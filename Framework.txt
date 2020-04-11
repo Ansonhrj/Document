@@ -127,6 +127,7 @@ Dagger-Android在刚开始的时候通过注解处理器分析@Component、@Modu
 这个map对象由App的dispatchingAndroidInjector对象持有。其中key值为activity/fragment的class，value为提供相应Component的Provider对象。
 
 统一为不同的activity和fragment注入对象
+https://juejin.im/post/5cc72061e51d456e6154b4bc
 1）在Application类中
     //继承 HasActivityInjector
     public class MyApplication extends Application implements HasActivityInjector {
