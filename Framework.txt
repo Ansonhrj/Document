@@ -21,7 +21,7 @@ public class A {
   
 ################################################
 Dagger
-https://github.com/Ansonhrj/Dagger2c
+https://github.com/Ansonhrj/Dagger2SubComponent
 https://www.imooc.com/article/22846
 
 1 使用 https://zhuanlan.zhihu.com/p/32772661
@@ -118,6 +118,13 @@ https://juejin.im/post/5a4cf2b2f265da430d586ace
 或者直接给 Component 直接添加一个对象依赖的提供函数。
     ？？
 
+################################################
+Dagger-android
+https://juejin.im/post/5b78d349f265da437c432db0
+https://github.com/Ansonhrj/MVVM-Android-dagger-android.git
+和普通的dagger对比一下区别就在于:
+Dagger-Android在刚开始的时候通过注解处理器分析@Component、@Module、@ContributesAndroidInjector 等等注解，帮我们在App启动的时候建立了一个全局的单例map，并添加相关的映射。
+这个map对象由App的dispatchingAndroidInjector对象持有。其中key值为activity/fragment的class，value为提供相应Component的Provider对象。
 
 
 
