@@ -6,12 +6,12 @@ gradle for Android
 
 
 ############################################
-Global X 依赖
+X 依赖
 1 app 用到的其它依赖模块， 在setting.gradle include
 2 在app 的build.gradle 中，implementation project(':library'),从而使用这些其它模块
 	
 ############################################
-Global X 地区，环境的支持
+X 地区，环境的支持
 1 定义flavordimensions， region， enviromnet, type(安全性相关)
 2 定义productFlavors, dimensions 'region'指明属于哪个dimension
 3 buildtpye, 安卓默认提供 debug 和release， 还可以自定义
@@ -22,7 +22,7 @@ Global X 地区，环境的支持
 6 每个buildvariant/productflavor可以由自己的sourceset
 	默认的sourceset是app/src/main
 	us的sourceset是app/src/us
-	还有在entity_specific_implemetations.gradle,添加sourceset
+	还有在entity_specific_i*.gradle,添加sourceset
 		例如/withoutmauth/mian/java
  build的时候， 所有buildscript和sourceset会合并
    资源文件和manifest的合并
