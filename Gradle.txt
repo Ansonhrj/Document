@@ -22,6 +22,8 @@ Global X 地区，环境的支持
 6 每个buildvariant/productflavor可以由自己的sourceset
 	默认的sourceset是app/src/main
 	us的sourceset是app/src/us
+	还有在entity_specific_implemetations.gradle,添加sourceset
+		例如/withoutmauth/mian/java
  build的时候， 所有buildscript和sourceset会合并
    资源文件和manifest的合并
 	优先级: buildtype > flavor > Main > dependencies(引用的其他模块)
