@@ -158,7 +158,7 @@ RxAndroid
 private fun createButtonClickObservable(): Observable<String> { //泛型<String>就是变化属性的类型
         return Observable.create { emitter ->   //用emitter为参数，创建一个ObservableOnSubscribe 对象， 用它来定义会变化（被观察）的属性
             searchButton.setOnClickListener {
-                emitter.onNext(queryEditText.text.toString())  //通过 emitter.onNext，指明变化属性的值
+                emitter.onNext(queryEditText.text.toString())  //通过 emitter.onNext，指明变化属性的值,传给observer
             }
             emitter.setCancellable {
                 searchButton.setOnClickListener(null)
