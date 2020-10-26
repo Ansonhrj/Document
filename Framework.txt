@@ -152,6 +152,7 @@ https://juejin.im/post/5cc72061e51d456e6154b4bc
 
 ################################################
 RxAndroid
+https://www.raywenderlich.com/2071847-reactive-programming-with-rxandroid-in-kotlin-an-introduction#toc-anchor-009
 ################################################
 1 How to Create an Observable
 
@@ -182,3 +183,22 @@ private fun createButtonClickObservable(): Observable<String> { //泛型<String>
                     println("asn in subscribe, + ${Thread.currentThread().name}")
                     showResult(it)
                 }
+4）Operator
+(1)用于subscribe前
+doOnNext, 适用于不需要操作observable的行为
+map
+                .doOnNext {
+                    println("asn in doonnext, + ${Thread.currentThread().name}")
+                    showProgress()
+                }
+                .observeOn(Schedulers.io()) //对于io和网络请求，可以切换到IO thread去操作
+                .map {  //在map 里面，通过it 获取到变化的内容. 用于suscribe 前，因为map有可能将obserable 输出的内容类型变化了
+                    println("asn in map, + ${Thread.currentThread().name}")
+                    cheeseSearchEngine.search(it)
+                }
+(2) 用于创建observable
+fllter
+debounce:控制多久才emit 变化出去
+        return textChangeObservable.filter {
+            it.length >=2
+        }.debounce (1000, TimeUnit.MILLISECONDS,AndroidSchedulers.mainThread() )  //debounce默认是在computation schedular
