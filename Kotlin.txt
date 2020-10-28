@@ -2,7 +2,20 @@ Log.d(TAG, "From: ${remoteMessage?.from}")
 	//变量是string， 直接 $name
 	//用对象的某个string属性 ¥、${people.name}
 
+#################################################
+习惯简写方法
+#################################################
+1 如果 Lambda 是函数的最后一个参数，你可以把 Lambda 写在括号的外面
+val product = items.fold(1， { acc, e -> acc * e })
+写成 val product = items.fold(1) { acc, e -> acc * e }
 
+如果该 lambda 表达式是调用时唯一的参数，那么圆括号可以完全省略：
+val product = items.fold({ acc, e -> acc * e })
+写成 val product = items.fold{ acc, e -> acc * e }
+
+一个 lambda 表达式只有一个参数，使用it：单个参数的隐式名称
+ints.filter {it -> it > 0 }
+写成ints.filter { it > 0 }
 
 #################################################
 类型转换
