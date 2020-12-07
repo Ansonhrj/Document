@@ -64,3 +64,12 @@ Live person
 	Account number: 19762014  19762014
 	User ID/Email: ansonhrj@126.com
 	pwd: Hr.....6#OAuth 2.0 Authentication Endpoint
+	
+	
+	
+#############################################################################################
+Spring boot
+#############################################################################################
+为什么用，http://www.ityouknow.com/springboot/2019/06/03/spring-boot-hot.html
+	1 约定优于配置（convention over configuration）
+	2 Spring Boot 的 Starter 机制
