@@ -156,7 +156,7 @@ https://www.raywenderlich.com/2071847-reactive-programming-with-rxandroid-in-kot
 ################################################
 1 How to Create an Observable
 
-private fun createButtonClickObservable(): Observable<String> { //泛型<String>就是变化属性的类型
+private fun createButtonClickObservable(): Observable<String> { //泛型<String>就是emiit出来的变量的类型
         return Observable.create { emitter ->   //用emitter为参数，创建一个ObservableOnSubscribe 对象， 用它来定义会变化（被观察）的属性
             searchButton.setOnClickListener {
                 emitter.onNext(queryEditText.text.toString())  //通过 emitter.onNext，指明变化属性的值,传给observer
@@ -202,3 +202,6 @@ debounce:控制多久才emit 变化出去
         return textChangeObservable.filter {
             it.length >=2
         }.debounce (1000, TimeUnit.MILLISECONDS,AndroidSchedulers.mainThread() )  //debounce默认是在computation schedular
+
+3 用flowable实现背压，避免被观察者发送事件速度 与 观察者接收事件速度 不匹配的场景
+https://blog.csdn.net/carson_ho/article/details/79081407
