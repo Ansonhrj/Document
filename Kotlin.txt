@@ -20,6 +20,33 @@ val product = items.fold({ acc, e -> acc * e })
 ints.filter {it -> it > 0 }
 写成ints.filter { it > 0 }
 
+2 使用接口创建匿名类（实例）
+（1）一般接口
+fun interface IntPredicate {
+   fun accept(i: Int): Boolean
+}
+// 创建一个类的实例
+val isEven = object : IntPredicate {    //使用object关键字，IntPredicate是接口
+   override fun accept(i: Int): Boolean {
+       return i % 2 == 0
+   }
+}
+
+（2）函数式 (SAM)接口
+fun interface IntPredicate {
+   fun accept(i: Int): Boolean
+}
+// 通过 lambda 表达式创建一个实例
+val isEven = IntPredicate { it % 2 == 0 }   //isEven就是一个实例了。 it就是接口中唯一那个抽象方法的参数
+
+fun main() {
+   println("Is 7 even? - ${isEven.accept(7)}")
+}
+
+
+
+
+
 #################################################
 类型转换
 	1 将 String？ 转化成 String
