@@ -20,6 +20,8 @@ https://medium.com/joe-tsai/mockk-%E4%B8%80%E6%AC%BE%E5%BC%B7%E5%A4%A7%E7%9A%84-
     
   指定方法的实现
   every{A.method2()} answers {}  //method2 时返回null的
+  
+  要在every中指定A的方法，A要是一个实例化了的对象，或者是mockkstatic（） mock了
 
 3 verify
   要verify mock object的方法，或者在every中打桩的方法。不可以进行了实例化的对象的方法
