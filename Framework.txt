@@ -21,6 +21,7 @@ public class A {
   
 ################################################
 Dagger
+例子：https://developer.android.com/codelabs/android-dagger?hl=zh-cn#0
 https://github.com/Ansonhrj/Dagger2SubComponent
 https://www.imooc.com/article/22846
 
@@ -51,6 +52,8 @@ class MainServiceModule {
     fun provideMainService(): MainService {
         return MainServiceImpl()   //这里是直接通过构造函数实例化
     }
+    
+    //也可以使用@Binds注解提供实例，参考https://developer.android.com/codelabs/android-dagger?hl=zh-cn#0
 }
  3）还是通过Component类将Module和MainActity桥接在一起。 注解要说明Module的class
  @Component(modules = [(MainServiceModule::class)])
