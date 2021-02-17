@@ -21,7 +21,22 @@ public class A {
   
 ################################################
 Dagger
-例子：https://developer.android.com/codelabs/android-dagger?hl=zh-cn#0
+######基于dagger version 2.27
+######例子：https://developer.android.com/codelabs/android-dagger?hl=zh-cn#0
+1 使用了Component.Factory 注解定义工厂，生成application component实例的代码更简单
+dagger 2.21用的是Component.Builder
+2 在application 类中，注入appcomponet（applcation component）的实例。因为application 类是单例，所以后续在各个activity中，只要获取到application实例，然后可以调用appcomponnet.inject进行依赖注入到当前activity
+3 提供依赖的实现方式，选择如下：
+1）假如可以编辑依赖的构造函数，直接在构造函数加 @Inject
+2）假如依赖是一个接口，无法编辑构造函数，通过@Bind注解，指明这个接口的实现类，然后在实现类的构造函数加入@Inject
+4 整个appcomponet（applcation component）用@Singleton注解成单例。整个app会用到的依赖，加上@Singleton这个注解
+activity 和fragemnt用到的依赖，
+1）放入@Subcomponent中提供 @SubComponent的接口用@ActivityScope（需要自己定义）指明，
+2）该依赖也用@ActivityScope，表明该依赖跟随activity的生命周期产生和销毁
+
+
+
+
 https://github.com/Ansonhrj/Dagger2SubComponent
 https://www.imooc.com/article/22846
 
