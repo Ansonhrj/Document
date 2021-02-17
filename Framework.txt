@@ -33,13 +33,12 @@ dagger 2.21用的是Component.Builder
 activity 和fragemnt用到的依赖，
 1）放入@Subcomponent中提供 @SubComponent的接口用@ActivityScope（需要自己定义）指明，
 2）该依赖也用@ActivityScope，表明该依赖跟随activity的生命周期产生和销毁
+@Subcomponent的定义和@Componnet一样，需要定义 .Factory 接口（用于生成copmonnet 或者 subcomponent的实例） 和 inject（）方法
 
 
-
-
+######基于dagger version 2.14，代码可读性比较差
 https://github.com/Ansonhrj/Dagger2SubComponent
 https://www.imooc.com/article/22846
-
 1 使用 https://zhuanlan.zhihu.com/p/32772661
 在例子中，MainPresenter是要注入的类(依赖类)，MainActivity是使用的地方（目标类，里面的mainPresenter变量叫目标对象）
 @Inject注解会用在step 1 和3
@@ -138,12 +137,19 @@ https://juejin.im/post/5a4cf2b2f265da430d586ace
 
 ################################################
 Dagger-android
+https://dagger.dev/dev-guide/android.html
+原理是为每个activity/Fragment定义一个@SubComponent，这样它们就可以注入依赖
+通过@ContributesAndroidInjector注解，去生成所需要的@SubComponet, @SubComponent.Factory的相关代码，无需自己定义
+########MobileChat sampleapp的架构
+ApplicationComponent inject application类
+ApplicationModule 提供整个app会用的，常驻内存的依赖，包括Context 和 Appliaction
+MobileChatModule 提供Activity 和 fragment用到的依赖
+BindMobileChatModule，用@ContributesAndroidInjector，为每个activity生成一个subcomponent
+
+########基于dagger-android 2.21的一个例子
 https://juejin.im/post/5b78d349f265da437c432db0
 https://github.com/Ansonhrj/MVVM-Android-dagger-android.git
 和普通的dagger对比一下区别就在于:
-Dagger-Android在刚开始的时候通过注解处理器分析@Component、@Module、@ContributesAndroidInjector 等等注解，帮我们在App启动的时候建立了一个全局的单例map，并添加相关的映射。
-这个map对象由App的dispatchingAndroidInjector对象持有。其中key值为activity/fragment的class，value为提供相应Component的Provider对象。
-
 统一为不同的activity和fragment注入对象
 https://juejin.im/post/5cc72061e51d456e6154b4bc
 1）在Application类中
