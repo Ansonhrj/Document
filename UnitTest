@@ -1,7 +1,13 @@
 
 Lab
   https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics?hl=zh-cn#2
-  
+
+Unit test包括
+1 local unit test,用mockito/Mockk等去模拟依赖
+？？如果您的测试对 Android 框架有依赖性（特别是与框架建立复杂互动的测试），最好使用 Robolectric 添加框架依赖项。
+2 instrumented unit test。会利用到设备的功能进行测试，如被测应用的 Context，room
+测试room， https://developer.android.com/training/data-storage/room/testing-db
+
   
 #############################################################################################################################
 Mockito
