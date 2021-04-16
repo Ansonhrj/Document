@@ -138,6 +138,7 @@ https://juejin.im/post/5a4cf2b2f265da430d586ace
 ################################################
 Dagger-android
 https://dagger.dev/dev-guide/android.html
+inject viewmodel  https://medium.com/@shashankmohabia/dagger-android-with-mvvm-dependency-injection-for-android-3a7e33ad1013   
 原理是为每个activity/Fragment定义一个@SubComponent，这样它们就可以注入依赖
 通过@ContributesAndroidInjector注解，去生成所需要的@SubComponet, @SubComponent.Factory的相关代码，无需自己定义
 ########MobileChat sampleapp的架构
