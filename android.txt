@@ -3,3 +3,8 @@
 Google play Framework
 	install to phone
 		https://arloor.com/posts/other/google-service-framework-install/
+		
+###########################################
+Android studio	
+	华为真机调试
+		https://zhuanlan.zhihu.com/p/385768787
