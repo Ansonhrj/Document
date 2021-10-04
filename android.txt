@@ -19,9 +19,11 @@ https://www.cnblogs.com/renqingping/archive/2012/10/24/application.html
 
 #################################################
 Context
-Context在加载资源、启动Activity、获取系统服务、创建View等操作都要参与
-
-1 获取Context
+https://www.jianshu.com/p/94e0f9ab3f1d
+1 Context在加载资源、启动Activity、获取系统服务、创建View等操作都要参与
+2 应用程序中Context的总数目为： 总Context个数 = Activity个数 + Service个数 + 1（Application Context）
+3 不同类型的context，作用域不一样，可以执行的操作也不一样
+4 获取Context
 	1)在Fragment中获取 
 		a)直接使用 “context”,因为父类Fragment.java 定义了context变量
 		b)requireActivity()
@@ -34,10 +36,9 @@ Context在加载资源、启动Activity、获取系统服务、创建View等操�
 	3：ContextWrapper.getBaseContext():用来获取一个ContextWrapper进行装饰之前的Context，可以使用这个方法，这个方法在实际开发中使用并不多，也不建议使用。
 	4：Activity.this 返回当前的Activity实例，如果是UI控件需要使用Activity作为Context对象，但是默认的Toast实际上使用ApplicationContext也可以。
 
-2 继承关系
+5 继承关系
 https://juejin.im/post/5cb2e343e51d456e60003abc
-https://www.jianshu.com/p/94e0f9ab3f1d
-	Context     //定义了 getApplicationContext方法，所有子类都有这个方法
+Context     //定义了 getApplicationContext方法，所有子类都有这个方法
 	├── ContextImpl
 	└── ContextWrapper
 	    ├── Application
