@@ -15,7 +15,7 @@ https://www.cnblogs.com/renqingping/archive/2012/10/24/application.html
     1）在Manifest添加
     android:name=".MainApplication"
 3 在Application创建的时候初始化全局变量，同一个应用的所有Activity都可以取到这些全局变量的值
-4 只需要调用Context的 getApplicationContext或者Activity的getApplication方法来获得一个Application对象
+4 只需要调用Context的 getApplicationContext或者Activity的getApplication方法来获得一个Application实例
 
 #################################################
 Context
