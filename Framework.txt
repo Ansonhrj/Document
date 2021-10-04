@@ -18,7 +18,23 @@ public class A {
 }
 
 
-  
+################################################
+Dagger-android
+https://dagger.dev/dev-guide/android.html
+inject viewmodel  https://medium.com/@shashankmohabia/dagger-android-with-mvvm-dependency-injection-for-android-3a7e33ad1013   
+原理是为每个activity/Fragment定义一个@SubComponent，这样它们就可以注入依赖
+通过@ContributesAndroidInjector注解，去生成所需要的@SubComponet, @SubComponent.Factory的相关代码，无需自己定义
+########MobileChat sampleapp的架构
+ApplicationComponent inject application类，@Component注解，要列举所有用到的module
+    对应地要在*application.kt类中对actiity/fragment注入（模板代码，并非对单个activity）
+ApplicationModule 提供整个app会用的，常驻内存的依赖，包括Context 和 Appliaction
+MobileChatModule 提供Activity 和 fragment用到的依赖
+BindMobileChatModule，用@ContributesAndroidInjector，为每个activity生成一个subcomponent
+scope的使用
+    原因：使得component（application， fragment等都算component）的组织机构更清晰，只会增加可读性，不会真正框定component的归属关系或者范围
+    
+    
+
 ################################################
 Dagger
 ######基于dagger version 2.27
@@ -135,17 +151,6 @@ https://juejin.im/post/5a4cf2b2f265da430d586ace
 或者直接给 Component 直接添加一个对象依赖的提供函数。
     ？？
 
-################################################
-Dagger-android
-https://dagger.dev/dev-guide/android.html
-inject viewmodel  https://medium.com/@shashankmohabia/dagger-android-with-mvvm-dependency-injection-for-android-3a7e33ad1013   
-原理是为每个activity/Fragment定义一个@SubComponent，这样它们就可以注入依赖
-通过@ContributesAndroidInjector注解，去生成所需要的@SubComponet, @SubComponent.Factory的相关代码，无需自己定义
-########MobileChat sampleapp的架构
-ApplicationComponent inject application类
-ApplicationModule 提供整个app会用的，常驻内存的依赖，包括Context 和 Appliaction
-MobileChatModule 提供Activity 和 fragment用到的依赖
-BindMobileChatModule，用@ContributesAndroidInjector，为每个activity生成一个subcomponent
 
 ########基于dagger-android 2.21的一个例子
 https://juejin.im/post/5b78d349f265da437c432db0
