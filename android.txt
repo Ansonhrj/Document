@@ -1,4 +1,97 @@
+###########################################
+Navigtion 页面和导航
+1 单activity+多fragment架构，因为切换fragment比切换activity消耗资源少
+2 通过Jetpack导航组件（NavHostFragment），使用导航图控制fragment跳转
+	1）例子：https://developer.android.com/codelabs/kotlin-android-training-add-navigation#0
+	2）导航组件封装了fragment的事物管理，秩序在View中调用导航图中定义好的direction，就可以实现fragment跳转。
+		不需要再viewmodel中调用跳转。viewmodel完成业务逻辑后，可以通过livedata类型的标志位，通知view，让view去实现跳转
 
+#################################################
+Application
+https://www.cnblogs.com/renqingping/archive/2012/10/24/application.html
+1 Android系统自动会为每个程序运行时创建一个Application类的对象且只创建一个，是单例（singleton）模式的一个类
+    Application类的onCreate方法是整个程序的入口
+2 可以继承Application类去定制化
+    1）在Manifest添加
+    android:name=".MainApplication"
+3 在Application创建的时候初始化全局变量，同一个应用的所有Activity都可以取到这些全局变量的值
+4 只需要调用Context的 getApplicationContext或者Activity的getApplication方法来获得一个Application对象
+
+#################################################
+Context
+Context在加载资源、启动Activity、获取系统服务、创建View等操作都要参与
+
+1 获取Context
+	1)在Fragment中获取 
+		a)直接使用 “context”,因为父类Fragment.java 定义了context变量
+		b)requireActivity()
+	2）在Viewmodel， 成员变量“Application” 就是context
+	3) 在activity 中， 用“application” 变量
+	
+想要获取Context对象，主要有以下四种方法
+	1：View.getContext,返回当前View对象的Context对象，通常是当前正在展示的Activity对象。
+	2：Activity.getApplicationContext,获取当前Activity所在的(应用)进程的Context对象，通常我们使用Context对象时，要优先考虑这个全局的进程Context。getApplication()只有在Activity和Service中才能调用的到
+	3：ContextWrapper.getBaseContext():用来获取一个ContextWrapper进行装饰之前的Context，可以使用这个方法，这个方法在实际开发中使用并不多，也不建议使用。
+	4：Activity.this 返回当前的Activity实例，如果是UI控件需要使用Activity作为Context对象，但是默认的Toast实际上使用ApplicationContext也可以。
+
+2 继承关系
+https://juejin.im/post/5cb2e343e51d456e60003abc
+https://www.jianshu.com/p/94e0f9ab3f1d
+	Context     //定义了 getApplicationContext方法，所有子类都有这个方法
+	├── ContextImpl
+	└── ContextWrapper
+	    ├── Application
+	    ├── ContextThemeWrapper
+	    │   └── Activity
+	    └── Service
+
+#################################################
+Resource
+1 调用R.String
+	1)in Fragment
+		getString(R.string.egg_notification_channel_id)
+	2）在Viewmodel， 成员变量“Application” 就是context
+		context.getString(R.string.timer_running)
+
+#################################################
+SystemService
+1 获取
+	1）in Fragment, requireActivity().getSystemService(
+	2） ContextCompat.getSystemService（
+	
+
+#################################################
+Service
+1 每个service要在manifest文件注册， 可以加<intent-filter>指明serice会响应哪个intent
+2 自定义的service类继承IntentService. 只需要重写onHandleIntent方法去实现service就可以
+  intentservice会创建一个子线程，一个一个按顺序响应对服务的调用。、
+  当没有组件调用service的时候，intentserivce会销毁实例，以释放资源
+  
+  假如继承service类的话，上述逻辑就要自己实现
+3 调用服务有两种方式
+  1） 在组件（如activity）调用startService方法
+  2） 组件绑定服务
+
+#################################################
+Content provider
+用于访问数据，提供了抽象接口，好处是就算换了数据源，调用方都不用改变
+1 每个Content provider要在manifest文件注册
+
+################################################
+Broadcast
+1 注册Broadcast receivers的两种方式
+  1）在manifest文件注册,可以加<intent-filter>指明serice会响应哪个intent
+  2）用context注册
+  	val br: BroadcastReceiver = MyBroadcastReceiver()
+	val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
+       		 addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+    	}
+    	registerReceiver(br, filter)
+2 发送广播有3种方式
+  1）sendOrderedBroadcast(Intent, String) 方法一次向一个接收器发送广播
+  2）sendBroadcast(Intent) 方法会按随机的顺序向所有接收器发送广播
+  3）LocalBroadcastManager.sendBroadcast 方法会将广播发送给与发送器位于同一应用中的接收器
+  
 ###########################################
 Google play Framework
 	install to phone
