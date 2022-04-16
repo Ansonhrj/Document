@@ -32,7 +32,7 @@ val isEven = object : IntPredicate {    //使用object关键字，IntPredicate�
    }
 }
 
-（2）函数式 (SAM)接口
+（2）函数式 (SAM)接口， https://www.kotlincn.net/docs/reference/fun-interfaces.html
 fun interface IntPredicate {
    fun accept(i: Int): Boolean
 }
@@ -43,7 +43,11 @@ fun main() {
    println("Is 7 even? - ${isEven.accept(7)}")
 }
 
-
+3 全局静态方法
+（1）扩展 https://www.kotlincn.net/docs/reference/extensions.html
+ (2) 将方法定义在 class 外
+ 
+ 
 #################################################
 启动另一个 activity， https://developer.android.com/training/basics/firstapp/starting-activity?hl=zh-cn
 	val intent = Intent(this, DisplayMessageActivity::class.java).apply {
