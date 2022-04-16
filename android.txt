@@ -10,6 +10,8 @@ Navigtion 页面和导航
 Databinding 数据绑定库
 code lab
 	https://developer.android.com/codelabs/android-databinding?hl=zh-cn#0
+two way binding example
+	https://github.com/android/databinding-samples/tree/master/TwoWaySample/app/src/main/java/com/example/android/databinding/twowaysample
 
 #################################################
 Application
