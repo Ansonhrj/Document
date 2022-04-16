@@ -6,6 +6,11 @@ Navigtion 页面和导航
 	2）导航组件封装了fragment的事物管理，秩序在View中调用导航图中定义好的direction，就可以实现fragment跳转。
 		不需要再viewmodel中调用跳转。viewmodel完成业务逻辑后，可以通过livedata类型的标志位，通知view，让view去实现跳转
 
+###########################################
+Databinding 数据绑定库
+code lab
+	https://developer.android.com/codelabs/android-databinding?hl=zh-cn#0
+
 #################################################
 Application
 https://www.cnblogs.com/renqingping/archive/2012/10/24/application.html
