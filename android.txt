@@ -1,3 +1,10 @@
+
+###########################################
+唤起一个应用
+	https://medium.com/android-news/android-application-launch-explained-from-zygote-to-your-activity-oncreate-8a8f036864b
+
+
+
 ###########################################
 Navigtion 页面和导航
 1 单activity+多fragment架构，因为切换fragment比切换activity消耗资源少
