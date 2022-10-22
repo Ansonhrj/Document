@@ -1,5 +1,10 @@
 
 ###########################################
+安装应用： PackageManager
+https://0xn3va.gitbook.io/cheat-sheets/android-application/overview/package-manager
+
+
+###########################################
 唤起一个应用
 	https://medium.com/android-news/android-application-launch-explained-from-zygote-to-your-activity-oncreate-8a8f036864b
 
