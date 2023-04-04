@@ -123,5 +123,10 @@ Google play Framework
 		
 ###########################################
 Android studio	
+	set up proxy 
+		1 set up in AS proxy window. using the info from 
+			shadowsocks->http 代理设置
+		2 gradle also need to add the config in 
+			/Users/hsbc.conversationbanking/.gradle/gradle.properties
 	华为真机调试
 		https://zhuanlan.zhihu.com/p/385768787
