@@ -132,5 +132,10 @@ Android studio
 		https://zhuanlan.zhihu.com/p/385768787
 模拟器
 	调用本地api
-	如果你正在使用Android Studio的模拟器，并且希望访问在本机（localhost）运行的API，你不能直接使用localhost或127.0.0.1，因为在模拟器环境中，这会指向模拟器自己，而不是你的开发机器。
-	取而代之的是，你需要使用特殊的IP地址10.0.2.2，这在Android模拟器中被设计用来访问开发机器的localhost。
+		1)如果你正在使用Android Studio的模拟器，并且希望访问在本机（localhost）运行的API，你不能直接使用localhost或127.0.0.1，因为在模拟器环境中，这会指向模拟器自己，而不是你的开发机器。
+		取而代之的是，你需要使用特殊的IP地址10.0.2.2，这在Android模拟器中被设计用来访问开发机器的localhost。
+		2) 要将android studio的proxy setup 变成no proxy。 grade.properties里面的proxy setting可以保留。 
+
+		https://arloor.com/posts/other/google-service-framework-install/d额
+		https://arloor.com/posts/other/google-service-framework-install/p
+		https://arloor.com/posts/other/google-service-framework-install/
